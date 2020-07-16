@@ -9,7 +9,9 @@ module.exports = {
             '/api': {
                 target: "https://showme.myhope365.com",
                 changeOrigin: true,
-
+                // pathRewrite: {
+                //     '^/api/': ''
+                // }
             }
         }
     },

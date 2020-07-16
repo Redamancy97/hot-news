@@ -12,6 +12,20 @@ Vue.config.productionTip = false
 
 
 import {Button,Icon,Swipe,SwipeItem,Tab,Tabs,Tabbar, TabbarItem,Search } from 'vant';
+// import {Button} from 'vant';
+import {
+    Button,
+    Cell,
+    CellGroup,
+    Field,
+    Form,
+    Tabbar,
+    TabbarItem,
+    Image as VanImage,
+    NavBar,
+    RadioGroup,
+    Radio, Toast, Uploader
+} from 'vant';
 
 Vue.use(Button);
 Vue.use(Icon);
@@ -27,6 +41,18 @@ Vue.use(Search);
 
 
 
+Vue.use(Tabbar);
+Vue.use(TabbarItem);
+Vue.use(Form);
+Vue.use(Field);
+Vue.use(Cell);
+Vue.use(CellGroup);
+Vue.use(VanImage);
+Vue.use(NavBar);
+Vue.use(RadioGroup);
+Vue.use(Radio);
+Vue.use(Toast);
+Vue.use(Uploader)
 
 new Vue({
     router,
