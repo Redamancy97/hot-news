@@ -7,11 +7,11 @@ module.exports = {
         hot: true,
         proxy: {
             '/api': {
-                target: "http://59.111.92.205:8088",
+                target: "https://showme.myhope365.com",
                 changeOrigin: true,
-                pathRewrite: {
-                    '^/api/': ''
-                }
+                // pathRewrite: {
+                //     '^/api/': ''
+                // }
             }
         }
     },

@@ -12,12 +12,33 @@ Vue.config.productionTip = false
 
 
 // import {Button} from 'vant';
-import {Tabbar, TabbarItem} from 'vant';
+import {
+    Button,
+    Cell,
+    CellGroup,
+    Field,
+    Form,
+    Tabbar,
+    TabbarItem,
+    Image as VanImage,
+    NavBar,
+    RadioGroup,
+    Radio, Toast, Uploader
+} from 'vant';
 
+Vue.use(Button);
 Vue.use(Tabbar);
 Vue.use(TabbarItem);
-// Vue.use(Button);
-
+Vue.use(Form);
+Vue.use(Field);
+Vue.use(Cell);
+Vue.use(CellGroup);
+Vue.use(VanImage);
+Vue.use(NavBar);
+Vue.use(RadioGroup);
+Vue.use(Radio);
+Vue.use(Toast);
+Vue.use(Uploader)
 
 new Vue({
     router,

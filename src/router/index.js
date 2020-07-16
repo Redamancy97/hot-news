@@ -9,6 +9,11 @@ import IndexLayout from "../layout/IndexLayout";
 import Search from "../views/search/Search";
 import OtherLayout from "../layout/OtherLayout";
 import Login from "../views/my/components/Login";
+import Register from "../views/my/components/Register";
+import PersonalCenter from "../views/my/components/PersonalCenter";
+import ForgetPassword from "../views/my/components/ForgetPassword";
+import ViewInformation from "../views/my/components/ViewInformation";
+import ModifyInformation from "../views/my/components/ModifyInformation";
 
 Vue.use(VueRouter)
 
@@ -45,6 +50,21 @@ const routes = [
                 children: [{
                     path: '/my/login',
                     component: Login
+                }, {
+                    path: '/my/register',
+                    component: Register
+                }, {
+                    path: '/my/personalcenter',
+                    component: PersonalCenter
+                }, {
+                    path: '/my/forgetpassword',
+                    component: ForgetPassword
+                }, {
+                    path: '/my/viewinformation',
+                    component: ViewInformation
+                }, {
+                    path: '/my/modifyinformation',
+                    component: ModifyInformation
                 }]
             }, {
                 path: '/features',
