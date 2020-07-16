@@ -11,9 +11,12 @@ Vue.use(VueAxios, axios)
 Vue.config.productionTip = false
 
 
-import {Button} from 'vant';
+// import {Button} from 'vant';
+import {Tabbar, TabbarItem} from 'vant';
 
-Vue.use(Button);
+Vue.use(Tabbar);
+Vue.use(TabbarItem);
+// Vue.use(Button);
 
 
 new Vue({

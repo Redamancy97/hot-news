@@ -8,6 +8,7 @@ import Features from "../views/features/Features";
 import IndexLayout from "../layout/IndexLayout";
 import Search from "../views/search/Search";
 import OtherLayout from "../layout/OtherLayout";
+import Login from "../views/my/components/Login";
 
 Vue.use(VueRouter)
 
@@ -40,7 +41,11 @@ const routes = [
                 component: Music
             }, {
                 path: '/my',
-                component: My
+                component: My,
+                children: [{
+                    path: '/my/login',
+                    component: Login
+                }]
             }, {
                 path: '/features',
                 component: Features
