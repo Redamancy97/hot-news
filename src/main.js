@@ -10,6 +10,12 @@ Vue.use(VueAxios, axios)
 
 Vue.config.productionTip = false
 
+
+import {Button} from 'vant';
+
+Vue.use(Button);
+
+
 new Vue({
     router,
     render: h => h(App),
