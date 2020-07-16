@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="index-container">
         <Header></Header>
         <router-view></router-view>
         <Footer></Footer>
@@ -7,18 +7,22 @@
 </template>
 
 <script>
-    import Footer from "../components/footer/Footer";
     import Header from "../components/header/Header";
+
+    import Footer from "../components/footer/Footer";
 
     export default {
         name: "IndexLayout",
         components: {
             Header,
+
             Footer
         }
     }
 </script>
 
-<style scoped>
-
+<style scoped lang="less">
+    .index-container {
+        background-color: #f4eeff;
+    }
 </style>

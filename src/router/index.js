@@ -24,7 +24,7 @@ const routes = [
             path: "",
             component: Index
         }, {
-            path: '/news',
+            path: '/news/:articleId',
             component: News
         }, {
             path: '/search',
