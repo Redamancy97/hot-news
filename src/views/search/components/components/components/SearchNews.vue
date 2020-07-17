@@ -36,6 +36,7 @@
 
 <style scoped lang="less">
     .index-container-bottom {
+        background-color: #fff;
         width: 100%;
         ul {
             li {

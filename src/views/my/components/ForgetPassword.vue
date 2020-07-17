@@ -40,9 +40,10 @@
 
 <script>
 
-    import Return from "./Return";
+    // import Return from "./Return";
     import {forgetPassword, sendCode} from "../../../api/user-api";
     import {Toast} from "vant";
+    import Return from "../../../components/header/Return";
 
     export default {
         name: "ForgetPassword",

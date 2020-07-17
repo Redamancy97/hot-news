@@ -25,7 +25,8 @@
 
 <script>
     import {getUserInfo} from "../../../api/user-api";
-    import Return from "./Return";
+    import Return from "../../../components/header/Return";
+    // import Return from "./Return";
 
     export default {
         name: "ViewInformation",
