@@ -11,8 +11,10 @@
     </div>
 </template>
 <script>
+    // import {listCart} from "../../../api/hot-news-api";
+    import ChangeDetail from "./ChangeDetail";
     import {listCart} from "../../../api/hot-news-api";
-    import ChangeDetail from "./components/ChangeDetail";
+    // import ChangeDetail from "./components/ChangeDetail";
 
     export default {
         name: "TabChange",

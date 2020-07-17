@@ -1,15 +1,7 @@
 <template>
     <div>
-        <div class="main">
-            <div class="index-container">
-                <div class="index-container-top">
-                    <span @click="click">
-                        <van-icon name="arrow-left"/>
-                        返回
-                    </span>
-                    <span>{{obj.title}}</span>
-                </div>
-            </div>
+        <Return :title="obj.title"></Return>
+        <div class="main" style="margin-top: 10px;background-color:#fff;">
             <div class="index-container-bottom">
                 <h3>{{obj.title}}</h3>
                 <p v-html="obj.content" class="content"></p>
@@ -17,16 +9,18 @@
             <!--收藏-->
             <Collent/>
         </div>
-      </div>
+    </div>
 </template>
 
 <script>
     import {newsDetail} from "../../../api/hot-news-api";
-    import Collent from "../Collent";
+    import Collent from "./Collent";
+    import Return from "../../../components/header/Return";
+    // import Collent from "../Collent";
 
     export default {
         name: "NewDetail",
-        components: {Collent},
+        components: {Collent, Return},
         props: {
             articleId: [Number, String]
         },
@@ -36,8 +30,8 @@
                 obj: {}
             }
         },
-        methods:{
-            click(){
+        methods: {
+            click() {
                 this.$router.go(-1)
             }
         },
@@ -69,6 +63,7 @@
 
     .index-container-bottom {
         /*height:800px ;*/
+        /*margin-top: 60px;*/
         padding-bottom: 100px;
         overflow: scroll;
         /*position: relative;*/

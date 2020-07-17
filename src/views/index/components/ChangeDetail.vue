@@ -15,7 +15,9 @@
 </template>
 
 <script>
-    import {listDetail} from "../../../../api/hot-news-api";
+    // import {listDetail} from "../../../../api/hot-news-api";
+
+    import {listDetail} from "../../../api/hot-news-api";
 
     export default {
         name: "ChangeDetail",
