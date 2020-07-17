@@ -1,14 +1,14 @@
 <template>
     <div>
       <div class="main">
-        <div class="index-container">
-            <div class="index-container-top" >
-                <a href="/index">
-                    <van-icon name="arrow-left" />返回
-                </a>
-                <span>{{obj.title}}</span>
-            </div>
-        </div>
+<!--        <div class="index-container">-->
+<!--            <div class="index-container-top" >-->
+<!--                <a href="/index">-->
+<!--                    <van-icon name="arrow-left" />返回-->
+<!--                </a>-->
+<!--                <span>{{obj.title}}</span>-->
+<!--            </div>-->
+<!--        </div>-->
         <div class="index-container-bottom">
             <h3>{{obj.title}}</h3>
             <p v-html="obj.content"></p>

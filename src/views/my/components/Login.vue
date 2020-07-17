@@ -57,6 +57,8 @@
                 loginApi(this.username, this.password).then(res => {
                     console.log(res);
                     if (res.data.code === 0) {
+                        this.$store.commit("changeLogin", {isLogin: true})
+                        // this.$store.dispatch("checkLoginStatus")
                         Toast.success('登录成功...');
                         this.$router.push("personalcenter");
                     } else {

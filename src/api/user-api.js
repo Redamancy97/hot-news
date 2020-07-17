@@ -65,3 +65,9 @@ export function changeImg(file) {
     formData.append("avatarfile", file);
     return request.post('/api/system/user/profile/update/avatar/nos', formData)
 }
+
+//收藏列表接口
+export function collectList() {
+    return request.get(`/api/cms/article/collect/list`)
+
+}

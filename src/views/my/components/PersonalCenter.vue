@@ -14,11 +14,11 @@
         <van-cell-group>
             <van-cell title="查看个人信息" is-link to="viewinformation"/>
             <van-cell title="修改个人信息" is-link to="modifyinformation"/>
-
+            <van-cell title="收藏列表" is-link to="collectList"/>
         </van-cell-group>
 
         <van-button round block type="info" @click="logout"
-                    style="margin-top: 20px;background-color:#a6b1e1;border: none" >
+                    style="margin-top: 20px;background-color:#a6b1e1;border: none">
             退出登录
         </van-button>
     </div>
@@ -26,6 +26,7 @@
 
 <script>
     import {getUserInfo, logout} from "../../../api/user-api";
+    import {mapState} from "vuex";
 
     export default {
         name: "PersonalCenter",
@@ -34,15 +35,25 @@
                 user: {}
             }
         },
+        computed: {
+            ...mapState["isLogin"]
+        },
         methods: {
             logout() {
-                logout().then(res => {
-                    console.log(res);
-                    console.log(1111111111);
-                    if (res.data.code==403){
-                        this.$router.push("login")
-                    }
-                })
+                // eslint-disable-next-line no-debugger
+                // debugger
+                console.log(this.$store.state.isLogin)
+                if (this.$store.state.isLogin) {
+                    logout().then(res => {
+                        // eslint-disable-next-line
+                        // debugger
+                        if (res.data.code == 403) {
+                            console.log(res);
+                            this.$store.commit("changeLogin", {isLogin: false})
+                            this.$router.push("login")
+                        }
+                    })
+                }
             }
         },
         created() {
