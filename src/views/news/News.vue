@@ -1,6 +1,6 @@
 <template>
     <div class="index-container">
-        <NewDetail :articleId="36853"/>
+        <NewDetail />
     </div>
 </template>
 
