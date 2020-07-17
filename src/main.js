@@ -13,6 +13,8 @@ Vue.config.productionTip = false
 
 import {Button, Icon, Swipe, SwipeItem, Tab, Tabs, Tabbar, TabbarItem, Search} from 'vant';
 // import {Button} from 'vant';
+import {Tag} from 'vant';
+
 import {
     Cell,
     CellGroup,
@@ -24,6 +26,7 @@ import {
     Radio, Toast, Uploader
 } from 'vant';
 
+Vue.use(Tag);
 Vue.use(Button);
 Vue.use(Icon);
 Vue.use(Swipe);
@@ -45,7 +48,6 @@ Vue.use(RadioGroup);
 Vue.use(Radio);
 Vue.use(Toast);
 Vue.use(Uploader)
-
 new Vue({
     router,
     render: h => h(App),

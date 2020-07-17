@@ -23,9 +23,20 @@ export function newsDetail(articleId) {
     return request.get(url)
 }
 
-//热门新闻
+//获取热门新闻
 export function searchNews(pageNum,pageSize) {
     const url=`/api/cms/article/open/hot/list?pageNum=${pageNum}&pageSize=${pageSize}`;
     return request.post(url)
 }
+//搜索列表
+export function SearchList(pageNum = 0, pageSize = 10, value) {
+    const formData = new FormData();
+    formData.append('pageNum', pageNum)
+    formData.append('pageSize', pageSize)
+    formData.append('title', value)
+    return request.post(`/api/cms/article/open/list`, formData);
+}
+
+
+
 

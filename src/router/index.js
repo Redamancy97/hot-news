@@ -14,13 +14,18 @@ import PersonalCenter from "../views/my/components/PersonalCenter";
 import ForgetPassword from "../views/my/components/ForgetPassword";
 import ViewInformation from "../views/my/components/ViewInformation";
 import ModifyInformation from "../views/my/components/ModifyInformation";
+import NewDetail from "../views/news/components/NewDetail";
+// import SearchListDetail from "../views/search/components/components/components/SearchListDetail";
 import store from '../store'
 import CollectList from "../views/my/components/CollectList";
 
 Vue.use(VueRouter)
 
 const routes = [
-
+    {
+        path: '/',
+        redirect: '/index',
+    },
     {
         path: '/index',
         name: 'index',
@@ -28,13 +33,25 @@ const routes = [
         children: [{
             path: "",
             component: Index
-        }, {
-            path: '/news/:articleId',
-            component: News
-        }, {
-            path: '/search',
-            component: Search
-        }]
+        },
+            {
+                path: '/news/:articleId',
+                name:'Detail',
+                component: News,
+
+            },
+
+            {
+                path: '/search',
+                component: Search,
+            },
+            {
+                path: '/newdetail/:articleId',
+                component: NewDetail,
+            },
+
+
+        ]
     },
     {
         path: '/other',
