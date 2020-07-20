@@ -36,7 +36,7 @@
                     Toast.success('收藏成功');
                     collectArticleId(this.articleId).then(res=>{
                         console.log(res)
-                        this.$router.push("/my/collectList")
+                        // this.$router.push("/my/collectList")
                     })
                 }
             }

@@ -1,7 +1,8 @@
 <template>
     <div>
         <div class="index-container">
-            <p @click="click">返回</p>
+<!--            <p @click="click">返回</p>-->
+            <Return></Return>
             <ul>
                 <router-link :to="'news/'+item.articleId" tag="li" v-for="(item,index) in listDetail" :key="index">
                     <img :src="item.bannerImgUrl" alt="">
@@ -17,13 +18,20 @@
 </template>
 
 <script>
-    import { SearchList} from "../../../../api/hot-news-api";
+    // import { SearchList} from "../../../../api/hot-news-api";
+    // import Return from "../../../../components/header/Return";
+    import Return from "../../../components/header/Return";
+    import {SearchList} from "../../../api/hot-news-api";
+
     export default {
         name: "SearchDetail",
         data() {
             return {
                 listDetail: [],
             }
+        },
+        components:{
+            Return
         },
         created() {
             // console.log(this.$route.params.value)

@@ -6,8 +6,11 @@
 </template>
 <script>
 
-    import SearchList from "./components/components/SearchList";
-    import SearchNews from "./components/components/SearchNews";
+    // import SearchList from "./components/components/SearchList";
+    // import SearchNews from "./components/components/SearchNews";
+
+    import SearchList from "./components/SearchList";
+    import SearchNews from "./components/SearchNews";
 
     export default {
         name: "Search",
