@@ -19,6 +19,7 @@ import CollectList from "../views/my/components/CollectList";
 import SearchDetail from "../views/search/components/SearchDetail";
 import FeaturesDetails from "../views/features/components/FeaturesDetails";
 import FeaturesList from "../views/features/components/FeaturesList";
+import OtherLayout from "../layout/OtherLayout";
 
 Vue.use(VueRouter)
 
@@ -50,13 +51,19 @@ const routes = [
             },
             {
                 path: '/sldetail/:value',
-                component:SearchDetail
+                component: SearchDetail
             },
+        ]
+    },
+    {
+        path: '/other',
+        component: OtherLayout,
+        children: [
             {
                 path: '/music',
                 component: Music
             },
-                {
+            {
                 path: '/my',
                 component: My,
                 children: [{
@@ -109,35 +116,33 @@ const routes = [
                 }]
             },
         ]
-    },
-
-    ]
+    }
+]
 //执行路由守卫之前，先检测一下登录状态
-    const loginPromise = store.dispatch("checkLoginStatus");
-    const router = new VueRouter({
-        mode: 'history',
-        base: process.env.BASE_URL,
-        routes
-    })
+const loginPromise = store.dispatch("checkLoginStatus");
+const router = new VueRouter({
+    mode: 'history',
+    base: process.env.BASE_URL,
+    routes
+})
 
 //路由的前置守卫
-    router.beforeEach((to, from, next) => {
-        if (to.meta.isAuth) {
-            //    需要鉴权的
-            loginPromise.then(() => {
-                if (store.state.isLogin) {
-                    next();
-                } else {
-                    next('/my/login')
-                }
-            })
-        } else {
-            next();
-        }
+router.beforeEach((to, from, next) => {
+    if (to.meta.isAuth) {
+        //    需要鉴权的
+        loginPromise.then(() => {
+            if (store.state.isLogin) {
+                next();
+            } else {
+                next('/my/login')
+            }
+        })
+    } else {
+        next();
+    }
 
-        // next(false);
-        // next('/index');
-    })
+    // next(false);
+    // next('/index');
+})
 
-export default
-    router
+export default router
