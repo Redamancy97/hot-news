@@ -47,6 +47,8 @@
                 // setTimeout 仅做示例，真实场景中一般为 ajax 请求
                 setTimeout(() => {
                     for (let i = 0; i < 10; i++) {
+                        // eslint-disable-next-line
+                        // debugger
                         this.lispicUrlt.push(this.list.length + 1);
                     }
 
@@ -73,19 +75,19 @@
             play(index) {
                 console.log(1111)
                 this.$refs.audio[index].play();
-                // this.isPlay = index;
+                this.isPlay = index;
             },
             pause(index) {
                 console.log(2222);
                 this.$refs.audio[index].pause();
-                // this.isPlay = index;
+                this.isPlay = index;
             }
 
         },
         created() {
             getMusicBill(1).then(res => {
                 console.log(res.data.playlist.tracks);
-                this.list = res.data.playlist.tracks.splice(0, 50);
+                this.list = res.data.playlist.tracks.splice(0, 30);
             });
 
         }
@@ -97,7 +99,7 @@
         position: fixed;
         width: 100%;
         height: 100%;
-        top: 0;
+        top: 40px;
         left: 0;
         background-color: #f4eeff;
         z-index: -1;

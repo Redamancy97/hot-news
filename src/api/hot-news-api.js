@@ -29,6 +29,7 @@ export function searchNews(pageNum,pageSize) {
     return request.post(url)
 }
 //搜索列表
+//form表单
 export function SearchList(pageNum = 0, pageSize = 10, value) {
     const formData = new FormData();
     formData.append('pageNum', pageNum)
