@@ -50,13 +50,12 @@
                     return;
                 }
                 //     搜索去重
-                let setList = new Set(this.list)
                 this.list.push(this.value)
+                let setList = new Set(this.list)
                 this.list = Array.from(setList)
                 //页面函数跳转+本地存储
                 localStorage.setItem("news", JSON.stringify(this.list));
                 this.$router.push("sldetail/"+this.value)
-
             },
             onCancel() {
                 this.$router.go(-1)
@@ -72,7 +71,7 @@
             },
         },
         created() {
-               this.list = JSON.parse(localStorage.getItem("news") || "[]")
+               // this.list = JSON.parse(localStorage.getItem("news") || "[]")
         },
 
     };

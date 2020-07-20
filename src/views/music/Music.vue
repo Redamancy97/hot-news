@@ -38,6 +38,7 @@
                 finished: false,
                 url: '',
                 src: '',
+                lispicUrlt:[]
                 // isPlay: -1
             }
         },
@@ -73,12 +74,12 @@
                 console.log(this.url);
             },
             play(index) {
-                console.log(1111)
+                // console.log(1111)
                 this.$refs.audio[index].play();
                 this.isPlay = index;
             },
             pause(index) {
-                console.log(2222);
+                // console.log(2222);
                 this.$refs.audio[index].pause();
                 this.isPlay = index;
             }
@@ -86,7 +87,7 @@
         },
         created() {
             getMusicBill(1).then(res => {
-                console.log(res.data.playlist.tracks);
+                // console.log(res.data.playlist.tracks);
                 this.list = res.data.playlist.tracks.splice(0, 30);
             });
 
