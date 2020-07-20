@@ -12,7 +12,7 @@
 </template>
 
 <script>
-    import {searchNews} from "../../../../../api/hot-news-api";
+    import {searchNews} from "../../../../api/hot-news-api";
     export default {
         name: "SearchNews",
         data() {

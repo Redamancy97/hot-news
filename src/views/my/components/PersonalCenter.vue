@@ -40,15 +40,9 @@
         },
         methods: {
             logout() {
-                // eslint-disable-next-line no-debugger
-                // debugger
-                console.log(this.$store.state.isLogin)
                 if (this.$store.state.isLogin) {
                     logout().then(res => {
-                        // eslint-disable-next-line
-                        // debugger
                         if (res.data.code == 403) {
-                            console.log(res);
                             this.$store.commit("changeLogin", {isLogin: false})
                             this.$router.push("login")
                         }
@@ -58,7 +52,6 @@
         },
         created() {
             getUserInfo().then(res => {
-                console.log(res.data.data)
                 this.user = res.data.data;
             })
         }

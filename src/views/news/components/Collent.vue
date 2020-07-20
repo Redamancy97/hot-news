@@ -9,12 +9,16 @@
 </template>
 <script>
     import {Dialog, Toast} from "vant";
+    import {collectArticleId} from "../../../api/hot-news-api";
     export default {
         name: "Collent",
         data(){
             return{
                 like: false,
             }
+        },
+        props:{
+            articleId:[Number,String]
         },
         methods: {
             enshrine() {
@@ -24,14 +28,16 @@
                         message: '那就取消吧',
                     })
                         .then(() => {
+
                             this.like = !this.like
                         })
-                        .catch(() => {
-                            // on cancel
-                        });
                 } else {
                     this.like = !this.like
                     Toast.success('收藏成功');
+                    collectArticleId(this.articleId).then(res=>{
+                        console.log(res)
+                        this.$router.push("/my/collectList")
+                    })
                 }
             }
         },
@@ -41,7 +47,7 @@
     .collent{
         font-size: 30px;
         position: fixed;
-        left:170px;
+        left:70px;
         bottom: 50px;
     }
 </style>

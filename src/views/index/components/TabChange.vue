@@ -1,7 +1,8 @@
 <template>
     <div class="index-container">
+
         <van-tabs>
-            <!--        头条-->
+                 <!--        头条-->
             <van-tab v-for="(item,index) in list" :key="index"
                      title-active-color="#424874" :title="item.name">
                 <!--          内容-->
@@ -11,11 +12,8 @@
     </div>
 </template>
 <script>
-    // import {listCart} from "../../../api/hot-news-api";
     import ChangeDetail from "./ChangeDetail";
     import {listCart} from "../../../api/hot-news-api";
-    // import ChangeDetail from "./components/ChangeDetail";
-
     export default {
         name: "TabChange",
         components: {ChangeDetail},
@@ -31,13 +29,10 @@
         },
         created() {
             listCart(1).then(res => {
-                // console.log(res)
-                this.list = res.data.rows
-                // console.log(res.data.rows)
+                this.list = res.data.rows.splice(0, 14)
             });
         }
     }
 </script>
-
 <style scoped lang="less">
 </style>

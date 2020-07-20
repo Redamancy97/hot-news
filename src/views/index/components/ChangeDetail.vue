@@ -2,6 +2,7 @@
     <div>
         <div class="index-container">
             <ul>
+                 <!--详情列表-->
                 <router-link :to="'news/'+item.articleId" tag="li" v-for="(item,index) in listDetail" :key="index">
                     <img :src="item.bannerImgUrl" alt="">
                     <div class="index-main">
@@ -15,8 +16,6 @@
 </template>
 
 <script>
-    // import {listDetail} from "../../../../api/hot-news-api";
-
     import {listDetail} from "../../../api/hot-news-api";
 
     export default {
@@ -32,7 +31,6 @@
         created() {
             listDetail(1, 13, this.categoryId).then(res => {
                 this.listDetail = res.data.rows
-                // console.log(res.data.rows)
             })
         }
     }
@@ -41,13 +39,11 @@
     .index-container {
         background-color: white;
         ul {
-
             li {
                 display: flex;
                 /*margin-top: 15px;*/
                 padding: 10px 0;
                 border-bottom: 1px solid #ccc;
-
                 img {
                     padding-left: 10px;
                     width: 120px;
@@ -55,13 +51,12 @@
                     margin-bottom: 10px;
                 }
                 .index-main {
-                       margin-left: 10px;
+                    margin-left: 10px;
                     .index-main-left {
                         padding-bottom: 15px;
-
                     }
-                    .index-main-left:hover{
-                            color:#a6b1e1 ;
+                    .index-main-left:hover {
+                        color: #a6b1e1;
                     }
                     .index-main-right {
                         font-size: 12px;
@@ -70,5 +65,4 @@
             }
         }
     }
-
 </style>

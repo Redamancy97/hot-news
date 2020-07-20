@@ -12,7 +12,7 @@ export function listCart(pageSize) {
     return request.post(url)
 }
 
-//列表分类
+//列表详情
 export function listDetail(pageNum,pageSize,categoryId) {
     const url=`/api/cms/article/open/list?pageNum=${pageNum}&pageSize=${pageSize}&categoryId=${categoryId}`;
     return request.post(url)
@@ -36,7 +36,16 @@ export function SearchList(pageNum = 0, pageSize = 10, value) {
     formData.append('title', value)
     return request.post(`/api/cms/article/open/list`, formData);
 }
+//收藏接口
+export function collectArticleId(articleId) {
+    return request.get(`/api/cms/collect/collect/article/${articleId}`)
 
+}
+
+//点赞接口
+export function dianZan(articleId) {
+    return request.get(`/api/cms/article/add/zan/${articleId}`)
+}
 
 
 

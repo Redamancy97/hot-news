@@ -6,21 +6,21 @@
                 <h3>{{obj.title}}</h3>
                 <p v-html="obj.content" class="content"></p>
             </div>
+            <!--  点赞   -->
+            <Zan  :articleId="obj.articleId"/>
             <!--收藏-->
-            <Collent/>
+            <Collent :articleId="obj.articleId"/>
         </div>
     </div>
 </template>
-
 <script>
     import {newsDetail} from "../../../api/hot-news-api";
     import Collent from "./Collent";
     import Return from "../../../components/header/Return";
-    // import Collent from "../Collent";
-
+    import Zan from "./Zan";
     export default {
         name: "NewDetail",
-        components: {Collent, Return},
+        components: {Zan, Collent, Return},
         props: {
             articleId: [Number, String]
         },
@@ -40,16 +40,13 @@
                 this.obj = res.data.data
             })
         },
-
     }
 </script>
-
 <style scoped lang="less">
     .index-container {
         height: 40px;
         /*border: 1px solid black;*/
         padding-top: 10px;
-
         .index-container-top {
             /*border: 1px solid black;*/
             width: 150px;
@@ -57,27 +54,20 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-
         }
     }
-
     .index-container-bottom {
-        /*height:800px ;*/
-        /*margin-top: 60px;*/
         padding-bottom: 100px;
         overflow: scroll;
         /*position: relative;*/
-
         h3 {
             margin-bottom: 20px;
             margin-left: 15px;
         }
-
         /deep/ .content img {
             width: 300px;
             height: 100%;
         }
-
         p {
             padding: 5px 10px;
             text-indent: 2em;
