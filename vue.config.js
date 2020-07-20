@@ -3,7 +3,7 @@ module.exports = {
         // --open --contentBase src --port 3000 --hot",
         open: true,
         contentBase: 'src',
-        port: 805,
+        port: 1005,
         hot: true,
         proxy: {
             '/api': {

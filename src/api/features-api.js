@@ -1,9 +1,9 @@
 import request from '../utils/http'
-
-export function getSolarTerms() {
-    return request.get('/features-api/jieqi/query?appkey=b582b02aac5800b0&year=')
+//https://api.jisuapi.com/astro/all?appkey=92a2efe26926f9cf
+export function getConstellation() {
+    return request.get(`/features-api/astro/all?appkey=cc740d566c5d084f`);
 }
 
-export function getSolarTermsDetails(jieqiid) {
-    return request.get(`/features-api/jieqi/detail?appkey=b582b02aac5800b0&jieqiid=${jieqiid}&year=`)
+export function getConstellationDetails(astroid) {
+    return request.get(`/features-api/astro/fortune?astroid=${astroid}&date=&appkey=cc740d566c5d084f`)
 }

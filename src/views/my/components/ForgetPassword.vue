@@ -49,7 +49,6 @@
         name: "ForgetPassword",
         data() {
             return {
-                title: '',
                 list: {
                     loginname: '',
                     password: '',

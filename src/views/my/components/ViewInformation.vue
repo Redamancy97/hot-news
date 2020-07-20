@@ -33,7 +33,6 @@
         data() {
             return {
                 user: {},
-                title: '',
             }
         },
         components: {

@@ -1,22 +1,13 @@
 <template>
     <div class="background">
-        features
+        <router-view></router-view>
     </div>
 </template>
 
 <script>
-    import {getSolarTerms, getSolarTermsDetails} from "../../api/features-api";
 
     export default {
         name: "Features",
-        created() {
-            getSolarTerms().then(res => {
-                console.log(res);
-            });
-            getSolarTermsDetails(1).then(res => {
-                console.log(res);
-            })
-        }
     }
 </script>
 
@@ -31,5 +22,6 @@
         z-index: -1;
         padding: 10px;
         overflow: scroll;
+        padding-bottom: 50px;
     }
 </style>

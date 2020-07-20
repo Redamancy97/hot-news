@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="background">
         <div class="index-container">
-<!--            <p @click="click">返回</p>-->
+            <!--            <p @click="click">返回</p>-->
             <Return></Return>
             <ul>
                 <router-link :to="'news/'+item.articleId" tag="li" v-for="(item,index) in listDetail" :key="index">
@@ -30,7 +30,7 @@
                 listDetail: [],
             }
         },
-        components:{
+        components: {
             Return
         },
         created() {
@@ -39,8 +39,8 @@
                 this.listDetail = res.data.rows
             })
         },
-        methods:{
-            click(){
+        methods: {
+            click() {
                 this.$router.go(-1)
             }
         }
@@ -49,6 +49,7 @@
 <style scoped lang="less">
     .index-container {
         background-color: white;
+
         ul {
 
             li {
@@ -62,15 +63,19 @@
                     height: 80px;
                     margin-bottom: 10px;
                 }
+
                 .index-main {
                     margin-left: 10px;
+
                     .index-main-left {
                         padding-bottom: 15px;
 
                     }
-                    .index-main-left:hover{
-                        color:#a6b1e1 ;
+
+                    .index-main-left:hover {
+                        color: #a6b1e1;
                     }
+
                     .index-main-right {
                         font-size: 12px;
                     }

@@ -17,7 +17,6 @@
         name: "CollectList",
         data() {
             return {
-                title: '',
                 list: []
             }
         },

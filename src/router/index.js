@@ -17,7 +17,8 @@ import NewDetail from "../views/news/components/NewDetail";
 import store from '../store'
 import CollectList from "../views/my/components/CollectList";
 import SearchDetail from "../views/search/components/SearchDetail";
-// import SearchDetail from "../views/search/components/components/SearchDetail";
+import FeaturesDetails from "../views/features/components/FeaturesDetails";
+import FeaturesList from "../views/features/components/FeaturesList";
 
 Vue.use(VueRouter)
 
@@ -49,13 +50,13 @@ const routes = [
             },
             {
                 path: '/sldetail/:value',
-                component:SearchDetail
+                component: SearchDetail
             },
             {
                 path: '/music',
                 component: Music
             },
-                {
+            {
                 path: '/my',
                 component: My,
                 children: [{
@@ -98,38 +99,44 @@ const routes = [
                 }]
             }, {
                 path: '/features',
-                component: Features
+                component: Features,
+                children: [{
+                    path: '/features',
+                    component: FeaturesList
+                }, {
+                    path: '/features/featuresdetails/:astroid',
+                    component: FeaturesDetails,
+                }]
             },
         ]
     },
 
-    ]
+]
 //执行路由守卫之前，先检测一下登录状态
-    const loginPromise = store.dispatch("checkLoginStatus");
-    const router = new VueRouter({
-        mode: 'history',
-        base: process.env.BASE_URL,
-        routes
-    })
+const loginPromise = store.dispatch("checkLoginStatus");
+const router = new VueRouter({
+    mode: 'history',
+    base: process.env.BASE_URL,
+    routes
+})
 
 //路由的前置守卫
-    router.beforeEach((to, from, next) => {
-        if (to.meta.isAuth) {
-            //    需要鉴权的
-            loginPromise.then(() => {
-                if (store.state.isLogin) {
-                    next();
-                } else {
-                    next('/my/login')
-                }
-            })
-        } else {
-            next();
-        }
+router.beforeEach((to, from, next) => {
+    if (to.meta.isAuth) {
+        //    需要鉴权的
+        loginPromise.then(() => {
+            if (store.state.isLogin) {
+                next();
+            } else {
+                next('/my/login')
+            }
+        })
+    } else {
+        next();
+    }
 
-        // next(false);
-        // next('/index');
-    })
+    // next(false);
+    // next('/index');
+})
 
-export default
-    router
+export default router

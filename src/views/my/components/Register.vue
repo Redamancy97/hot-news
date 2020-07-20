@@ -75,7 +75,6 @@
                     sex: '1',
                     remark: ''
                 },
-                title: ''
             };
         },
         components: {
@@ -103,6 +102,7 @@
             sendCode() {
                 sendCode(this.list.tel).then(res => {
                     console.log(res);
+                    Toast.fail(res.data.msg);
                 })
             }
         },
