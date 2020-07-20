@@ -7,7 +7,7 @@
 <script>
 
     import SearchList from "./components/components/SearchList";
-    import SearchNews from "./components/components/components/SearchNews";
+    import SearchNews from "./components/components/SearchNews";
 
     export default {
         name: "Search",

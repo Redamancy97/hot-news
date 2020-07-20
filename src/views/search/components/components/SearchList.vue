@@ -1,6 +1,7 @@
 <template>
     <div>
        <!--搜索组件-->
+
         <form action="/">
             <van-search
                     v-model="value"
@@ -52,6 +53,7 @@
                     return;
                 }
                 this.list.push(historyObj);
+                this.$router.push("sldetail/"+this.value)
                 localStorage.setItem("news", JSON.stringify(this.list));
             },
             onCancel() {
@@ -70,6 +72,7 @@
         created() {
             this.list = JSON.parse(localStorage.getItem("news") || "[]");
         },
+
     };
 </script>
 <style lang="less" scoped>

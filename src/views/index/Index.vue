@@ -1,17 +1,12 @@
 <template>
     <div class="background">
         <Swiper style="margin: 10px 0" :pageNum="1" :pageSize="10"/>
-        <!--        -->
-        <TabChange/>
+        <TabChange  />
     </div>
 </template>
-
 <script>
-
-
     import Swiper from "./components/Swiper";
     import TabChange from "./components/TabChange";
-
     export default {
         name: "Index",
         components: {
@@ -20,7 +15,6 @@
         }
     }
 </script>
-
 <style scoped lang="less">
     .background {
         position: fixed;

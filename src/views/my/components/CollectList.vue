@@ -26,7 +26,6 @@
         },
         created() {
             collectList().then(res => {
-                console.log(res);
                 this.list = res.data.rows;
             })
         }

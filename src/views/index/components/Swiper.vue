@@ -5,10 +5,8 @@
                 <img :src="item.coverImgUrl" alt="">
             </van-swipe-item>
         </van-swipe>
-
     </div>
 </template>
-
 <script>
     import {picSwiper} from "../../../api/hot-news-api";
 
@@ -31,7 +29,6 @@
         }
     }
 </script>
-
 <style scoped lang="less">
     .my-swipe .van-swipe-item {
         color: #fff;
@@ -40,7 +37,6 @@
         text-align: center;
         background-color: #39a9ed;
     }
-
     .my-swipe{
         width: 100%;
         height: 250px;

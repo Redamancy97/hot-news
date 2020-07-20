@@ -1,6 +1,7 @@
 <template>
     <div>
         <div class="index-container">
+            <p @click="click">返回</p>
             <ul>
                 <router-link :to="'news/'+item.articleId" tag="li" v-for="(item,index) in listDetail" :key="index">
                     <img :src="item.bannerImgUrl" alt="">
@@ -11,26 +12,29 @@
                 </router-link>
             </ul>
         </div>
+
     </div>
 </template>
 
 <script>
-    import {listDetail} from "../../../../api/hot-news-api";
+    import { SearchList} from "../../../../api/hot-news-api";
     export default {
-        name: "SearchListDetail",
+        name: "SearchDetail",
         data() {
             return {
                 listDetail: [],
             }
         },
-        props: [
-            'categoryId'
-        ],
         created() {
-            listDetail(1, 13, this.categoryId).then(res => {
+            // console.log(this.$route.params.value)
+            SearchList(1, 5, this.$route.params.value).then(res => {
                 this.listDetail = res.data.rows
-                // console.log(res.data.rows)
             })
+        },
+        methods:{
+            click(){
+                this.$router.go(-1)
+            }
         }
     }
 </script>

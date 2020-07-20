@@ -71,3 +71,4 @@ export function collectList() {
     return request.get(`/api/cms/article/collect/list`)
 
 }
+
