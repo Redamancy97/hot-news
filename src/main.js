@@ -11,7 +11,7 @@ Vue.use(VueAxios, axios)
 Vue.config.productionTip = false
 
 
-import {Button, Icon, Swipe, SwipeItem, Tab, Tabs, Tabbar, TabbarItem, Search} from 'vant';
+import {Button, Icon, Swipe, SwipeItem, Tab, Tabs, Tabbar, TabbarItem, Search, List} from 'vant';
 // import {Button} from 'vant';
 import {Tag} from 'vant';
 
@@ -47,7 +47,9 @@ Vue.use(NavBar);
 Vue.use(RadioGroup);
 Vue.use(Radio);
 Vue.use(Toast);
-Vue.use(Uploader)
+Vue.use(Uploader);
+Vue.use(List);
+Vue.use(Icon)
 new Vue({
     router,
     render: h => h(App),

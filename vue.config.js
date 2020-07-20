@@ -8,10 +8,21 @@ module.exports = {
         proxy: {
             '/api': {
                 target: "https://showme.myhope365.com",
+                changeOrigin: true
+            },
+            '/music-api': {
+                target: 'http://59.111.92.205:8089',
                 changeOrigin: true,
-                // pathRewrite: {
-                //     '^/api/': ''
-                // }
+                pathRewrite: {
+                    '^/music-api': ''
+                }
+            },
+            '/features-api': {
+                target: 'https://api.jisuapi.com',
+                changeOrigin: true,
+                pathRewrite: {
+                    "^/features-api": ''
+                }
             }
         }
     },
