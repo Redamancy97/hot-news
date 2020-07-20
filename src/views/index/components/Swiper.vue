@@ -40,6 +40,7 @@
     .my-swipe{
         width: 100%;
         height: 250px;
+        margin-top: 5px;
         img{
             width: 100%;
             height: 100%;

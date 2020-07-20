@@ -1,7 +1,6 @@
 <template>
     <div>
        <!--搜索组件-->
-
         <form action="/">
             <van-search
                     v-model="value"
@@ -12,7 +11,7 @@
             />
         </form>
         <div class="searchContainer">
-      <span class="history" v-for="(item,index) in list" :key="item.id">
+      <span class="history" v-for="(item,index) in list" :key="index">
           <!-- 标签组件-->
            <van-tag
                 v-if="show.primary"
@@ -20,15 +19,13 @@
                 size="medium"
                 type="primary"
                 @close="close(index)"
-        >{{item.content}}</van-tag>
+        >{{item}}</van-tag>
        </span>
             <div style="text-align:center;margin:20px 0;font-size:14px;" @click="clearHistory">清空历史记录</div>
         </div>
     </div>
 </template>
 <script>
-
-    // import {Toast} from "vant";
     export default {
         name: "SearchList",
         data() {
@@ -44,17 +41,22 @@
         },
         methods: {
             onSearch() {
-                // Toast(val);
-                let historyObj = {
-                    id: Date.now(),
-                    content: this.value
-                };
+                // console.log(typeof(this.list))
+                // let historyObj = {
+                //     id: Date.now(),
+                //     content: this.value
+                // };
                 if (this.value == ""){
                     return;
                 }
-                this.list.push(historyObj);
-                this.$router.push("sldetail/"+this.value)
+                //     搜索去重
+                let setList = new Set(this.list)
+                this.list.push(this.value)
+                this.list = Array.from(setList)
+                //页面函数跳转+本地存储
                 localStorage.setItem("news", JSON.stringify(this.list));
+                this.$router.push("sldetail/"+this.value)
+
             },
             onCancel() {
                 this.$router.go(-1)
@@ -70,7 +72,7 @@
             },
         },
         created() {
-            this.list = JSON.parse(localStorage.getItem("news") || "[]");
+               this.list = JSON.parse(localStorage.getItem("news") || "[]")
         },
 
     };

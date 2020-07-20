@@ -17,7 +17,6 @@ import NewDetail from "../views/news/components/NewDetail";
 import store from '../store'
 import CollectList from "../views/my/components/CollectList";
 import SearchDetail from "../views/search/components/SearchDetail";
-// import SearchDetail from "../views/search/components/components/SearchDetail";
 
 Vue.use(VueRouter)
 

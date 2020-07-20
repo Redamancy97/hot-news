@@ -15,8 +15,8 @@
                     <p class="music-name">{{item.name}}</p>
                     <p class="music-author">{{item.ar[0].name}}</p>
                     <p class="music-icon">
-                        <van-icon name="play-circle-o" @click="getUrl(item.id,index)"/>
-                        <van-icon name="pause-circle-o" @click="pause(index)"/>
+                        <van-icon name="play-circle-o" @click="getUrl(item.id,index)" />
+                        <van-icon name="pause-circle-o" @click="pause(index)" />
                     </p>
                     <audio :src="src" controls ref="audio" style="display: none"></audio>
                 </div>
@@ -38,7 +38,8 @@
                 finished: false,
                 url: '',
                 src: '',
-                isPlay: -1
+
+                lispicUrlt:[]
             }
         },
         methods: {
@@ -47,9 +48,10 @@
                 // setTimeout 仅做示例，真实场景中一般为 ajax 请求
                 setTimeout(() => {
                     for (let i = 0; i < 10; i++) {
+                        // eslint-disable-next-line
+                        // debugger
                         this.lispicUrlt.push(this.list.length + 1);
                     }
-
                     // 加载状态结束
                     this.loading = false;
 
@@ -61,22 +63,23 @@
             },
             getUrl(url, index) {
                 this.url = url;
+                this.isPlay=false
                 getMusicUrl(this.url).then(res => {
-                    console.log(res.data.data[0].url);
+                    // console.log(res.data.data[0].url);
                     this.src = res.data.data[0].url;
                     this.$nextTick(() => {
                         this.play(index);
                     })
                 })
-                console.log(this.url);
+                // console.log(this.url);
             },
             play(index) {
-                console.log(1111)
+                // console.log(1111)
                 this.$refs.audio[index].play();
                 this.isPlay = index;
             },
             pause(index) {
-                console.log(2222);
+                // console.log(2222);
                 this.$refs.audio[index].pause();
                 this.isPlay = index;
             }
@@ -84,10 +87,9 @@
         },
         created() {
             getMusicBill(1).then(res => {
-                console.log(res.data.playlist.tracks);
+                // console.log(res.data.playlist.tracks);
                 this.list = res.data.playlist.tracks.splice(0, 30);
             });
-
         }
     }
 </script>
@@ -97,7 +99,7 @@
         position: fixed;
         width: 100%;
         height: 100%;
-        top: 0;
+        top: 40px;
         left: 0;
         background-color: #f4eeff;
         z-index: -1;

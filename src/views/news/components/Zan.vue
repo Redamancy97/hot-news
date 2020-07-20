@@ -10,7 +10,6 @@
 <script>
     import {Dialog, Toast} from "vant";
     import {dianZan} from "../../../api/hot-news-api";
-    // import {collectArticleId} from "../../../api/hot-news-api";
 
     export default {
         name: "Zan",
