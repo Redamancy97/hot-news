@@ -17,12 +17,12 @@ module.exports = {
                     '^/music-api': ''
                 }
             },
-            '/features-api': {
+            '/astro': {
                 target: 'https://api.jisuapi.com',
                 changeOrigin: true,
-                pathRewrite: {
-                    "^/features-api": ''
-                }
+                // pathRewrite: {
+                //     "^/features-api": ''
+                // }
             }
         }
     },

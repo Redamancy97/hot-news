@@ -22,25 +22,28 @@
         },
         methods: {
             enshrine() {
-                if (this.like) {
-                    Dialog.confirm({
-                        title: '你不喜欢了？',
-                        message: '那就取消吧',
-                    })
-                        .then(() => {
-
-                            this.like = !this.like
+                // if(){
+                    if (this.like) {
+                        Dialog.confirm({
+                            title: '你不喜欢了？',
+                            message: '那就取消吧',
                         })
-                } else {
-                    this.like = !this.like
-                    Toast.success('收藏成功');
-                    collectArticleId(this.articleId).then(res=>{
-                        console.log(res)
-                        // this.$router.push("/my/collectList")
-                    })
+                            .then(() => {
+
+                                this.like = !this.like
+                            })
+                    } else {
+                        this.like = !this.like
+                        Toast.success('收藏成功');
+                        collectArticleId(this.articleId).then(res=>{
+                            console.log(res)
+                            // this.$router.push("/my/collectList")
+                        })
+                    }
                 }
+
             }
-        },
+        // },
     }
 </script>
 <style scoped lang="less">
