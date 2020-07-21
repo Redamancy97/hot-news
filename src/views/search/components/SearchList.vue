@@ -71,7 +71,7 @@
             },
         },
         created() {
-               // this.list = JSON.parse(localStorage.getItem("news") || "[]")
+               this.list = JSON.parse(localStorage.getItem("news") || "[]")
         },
 
     };
