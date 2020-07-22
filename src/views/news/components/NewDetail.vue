@@ -9,7 +9,7 @@
             <!--  点赞   -->
             <Zan :articleId="obj.articleId"/>
             <!--收藏-->
-            <Collent :articleId="obj.articleId"/>
+            <Collent :articleId="obj.articleId" :is-collect="obj.isCollect" @collect="changeCollect"/>
         </div>
     </div>
 </template>
@@ -34,6 +34,11 @@
         methods: {
             click() {
                 this.$router.go(-1)
+            },
+            changeCollect(){
+                newsDetail(this.$route.params.articleId).then(res => {
+                    this.obj = res.data.data
+                })
             }
         },
         created() {

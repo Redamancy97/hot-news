@@ -17,7 +17,6 @@
 
 <script>
     import {listDetail} from "../../../api/hot-news-api";
-
     export default {
         name: "ChangeDetail",
         data() {
@@ -25,12 +24,17 @@
                 listDetail: [],
             }
         },
-        props: [
-            'categoryId'
-        ],
+        props: {
+            categoryId:[Number,String]
+        }
+
+        ,
         created() {
             listDetail(1, 13, this.categoryId).then(res => {
                 this.listDetail = res.data.rows
+                // this.listDetail=this.listDetail.map(item=>(
+                //     {...item,flag:false}
+                // ))
             })
         }
     }

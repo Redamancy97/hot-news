@@ -7,15 +7,12 @@
             <router-link to="/music"><van-tabbar-item icon="service-o" >音乐</van-tabbar-item></router-link>
             <router-link to="/features"><van-tabbar-item icon="flower-o" >星座</van-tabbar-item></router-link>
             <van-tabbar-item  icon="user-o"  @click="isShow">我的</van-tabbar-item>
-
-
         </van-tabbar>
     </div>
     </div>
 </template>
 
 <script>
-
     export default {
         name: "Footer",
         data() {
@@ -39,15 +36,14 @@
         }
     }
 </script>
-
 <style scoped lang="less">
     .index-container{
+
         background-color: #424874;
     }
    /deep/ .van-tabbar-item{
-
        margin-top: 8px;
-       margin-bottom: 10px;
+       margin-bottom: 5px;
        padding: 0px 25px;
    }
 
