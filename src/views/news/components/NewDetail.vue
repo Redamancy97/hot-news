@@ -7,7 +7,8 @@
                 <p v-html="obj.content" class="content"></p>
             </div>
             <!--  点赞   -->
-            <Zan :articleId="obj.articleId"/>
+<!--:articleId="obj.articleId"-->
+<!--            <Zan />-->
             <!--收藏-->
             <Collent :articleId="obj.articleId" :is-collect="obj.isCollect" @collect="changeCollect"/>
         </div>
@@ -17,11 +18,11 @@
     import {newsDetail} from "../../../api/hot-news-api";
     import Collent from "./Collent";
     import Return from "../../../components/header/Return";
-    import Zan from "./Zan";
+    // import Zan from "./Zan";
 
     export default {
         name: "NewDetail",
-        components: {Zan, Collent, Return},
+        components: {Collent, Return},
         props: {
             articleId: [Number, String]
         },
@@ -39,7 +40,8 @@
                 newsDetail(this.$route.params.articleId).then(res => {
                     this.obj = res.data.data
                 })
-            }
+            },
+
         },
         created() {
             newsDetail(this.$route.params.articleId).then(res => {

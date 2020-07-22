@@ -9,7 +9,7 @@
 
 <script>
     import {Dialog, Toast} from "vant";
-    import {dianZan} from "../../../api/hot-news-api";
+    // import {dianZan} from "../../../api/hot-news-api";
     import {mapState} from "vuex";
 
     export default {
@@ -39,12 +39,12 @@
                     if (this.$store.state.isLogin) {
                         this.like = !this.like
                         Toast.success('点赞成功');
-                        dianZan(this.articleId).then(res => {
-                            console.log(res)
-                        })
+                        // dianZan(this.articleId).then(res => {
+                        //     console.log(res)
+                        // })
                     } else {
                         Dialog.confirm({
-                            title: '您不登陆没办法收藏哦',
+                            title: '您不登陆没办法点赞哦',
                             message: '单击确认可以去到登录页面哦',
                             confirmButtonText: '这就去登录',
                             confirmButtonColor: '#424874',

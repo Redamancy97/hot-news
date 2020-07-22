@@ -5,7 +5,7 @@
         <!--            <van-icon v-show="!like" name="like-o" @click="enshrine"/>-->
         <!--            <van-icon v-show="like" name="like" color="red" @click="enshrine"/>-->
         <!--        </div>-->
-        <van-icon class="collect" name="like-o"
+        <van-icon class="collect" name="like"
                 style="position: fixed; right: 35px;bottom: 55px;"
                 :color="isCollect?'red':'black'"
                 @click="collect"
@@ -38,13 +38,6 @@
         },
         computed: {
             ...mapState['isLogin']
-        },
-        created() {
-            // newsDetail(this.$route.params.articleId)
-            //     .then(res => {
-            //         console.log(res);
-            //         this.flag = res.data.isCollect;
-            //     })
         },
         methods: {
             collect() {
@@ -115,7 +108,7 @@
     .collect {
         font-size: 30px;
         position: fixed;
-        left: 70px;
+        left: 170px;
         bottom: 50px;
     }
 </style>
